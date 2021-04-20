@@ -207,8 +207,9 @@ class SAMAP(object):
                 gnnm, gn1, gn2, gn = _coarsen_blast_graph(
                     gnnm, gn1, gn2, gn, id1, id2, names1, names2
                 )
-
+            print(gnnm)
             gnnm = _filter_gnnm(gnnm, thr=0.25)
+            print(gnnm)
         else:
             gnnm, gn1, gn2 = gnnm
             gn = np.append(gn1,gn2)
