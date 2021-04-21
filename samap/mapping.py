@@ -198,6 +198,9 @@ class SAMAP(object):
                 gnnm, gn1, gn2 = _calculate_blast_graph(
                     id1, id2, f_maps=f_maps, reciprocate=reciprocal_blast
                 )
+                print(gn1)
+                print(gn2)
+                print(gnnm)
             else:
                 gnnm, gn1, gn2 = _calculate_eggnog_graph(E[0], E[1], id1, id2, taxa=taxa)
 
