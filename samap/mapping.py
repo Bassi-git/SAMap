@@ -200,7 +200,7 @@ class SAMAP(object):
                 )
                 #print(gn1)
                 #print(gn2)
-                print("the dimensions of gnnm are {gnnm.shape()}")
+                print("the dimensions of gnnm are", gnnm.shape)
                 print(gnnm)
             else:
                 gnnm, gn1, gn2 = _calculate_eggnog_graph(E[0], E[1], id1, id2, taxa=taxa)
