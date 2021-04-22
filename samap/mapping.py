@@ -1174,7 +1174,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
             groupsB[name] = L
         entry_list = list(groupsB.items())
         random_entry = random.choice(entry_list)
-        print("groupsA looks like this", random_entry)
+        print("groupsB looks like this", random_entry)
     else:
         groupsB = None
 
@@ -1207,7 +1207,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                             #print("len of groups k is smaller than 1")
                             f = gn == ids + "_" + groups[k][0]
                             #print("f looks like this", f)
-                            np.any(f)
+                            #np.any(f)
                             if np.any(f):
                                 #print("np any of f is true")
                                 z = gnnm[f].A.flatten()
@@ -1236,9 +1236,9 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                     X.extend(xa)
                     Y.extend(ya)
                     D.extend(da)
-                    print("printing X again",X)
-                    print("printing Y again",Y)
-                    print("printing D again",D)
+                    #print("printing X again",X)
+                    #print("printing Y again",Y)
+                    #print("printing D again",D)
                     gnnm = sp.sparse.coo_matrix(
                         (D, (X, Y)),
                         shape=(xdim + gnnm.shape[0] - g.size, gnnm.shape[1]),
