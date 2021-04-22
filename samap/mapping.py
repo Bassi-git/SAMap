@@ -1158,7 +1158,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
             L = groupsA.get(name, [])
             L.append(namesA[i][0])
             groupsA[name] = L
-        #print("groups a looks like", groupsA)
+        print("groupsA has this length", len(groupsA))
     else:
         groupsA = None
 
@@ -1169,7 +1169,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
             L = groupsB.get(name, [])
             L.append(namesB[i][0])
             groupsB[name] = L
-        #print("groups b looks like", groupsB)
+        print("groupsB has this length", len(groupsB))
     else:
         groupsB = None
 
@@ -1201,6 +1201,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                         else:
                             #print("len of groups k is smaller than 1")
                             f = gn == ids + "_" + groups[k][0]
+                            print("f looks like this", f)
                             if np.any(f):
                                 #print("np any of f is true")
                                 z = gnnm[f].A.flatten()
