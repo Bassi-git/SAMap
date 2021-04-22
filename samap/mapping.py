@@ -1190,22 +1190,22 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                     D = []
                     for i, k in enumerate(groups.keys()):
                         if len(groups[k]) > 1:
-                            print("len of groups k is bigger than 1")
+                            #print("len of groups k is bigger than 1")
                             f = np.in1d(gn, [ids + "_" + x for x in groups[k]])
                             if f.sum() > 0:
-                                print("f sum is bigger than 0")
+                                #print("f sum is bigger than 0")
                                 z = gnnm[f].max(0).A.flatten()
                             else:
-                                print("f sum is 0")
+                                #print("f sum is 0")
                                 z = np.array([])
                         else:
-                            print("len of groups k is smaller than 1")
+                            #print("len of groups k is smaller than 1")
                             f = gn == ids + "_" + groups[k][0]
                             if np.any(f):
-                                print("np any of f is true")
+                                #print("np any of f is true")
                                 z = gnnm[f].A.flatten()
                             else:
-                                print("np any of f is not true")
+                                #print("np any of f is not true")
                                 z = np.array([])
                         y = z.nonzero()[0]
                         d = z[y]
@@ -1213,9 +1213,9 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                         X.extend(x)
                         Y.extend(y)
                         D.extend(d)
-                        print("printing X",X)
-                        print("printing Y",Y)
-                        print("printing D",D)
+                        #print("printing X",X)
+                        #print("printing Y",Y)
+                        #print("printing D",D)
                     if n == "A":
                         print("n is equal to A")
                         xa, ya = gnnm[gn1.size :].nonzero()
