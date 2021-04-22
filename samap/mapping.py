@@ -211,7 +211,7 @@ class SAMAP(object):
                 gnnm, gn1, gn2, gn = _coarsen_blast_graph(
                     gnnm, gn1, gn2, gn, id1, id2, names1, names2
                 )
-            print("After coarsening it looks like this\n", gnnm)
+            print("After coarsening it looks like this\n", gnnm, "\nsee above")
             gnnm = _filter_gnnm(gnnm, thr=0.25)
             #print(gnnm)
         else:
@@ -1188,16 +1188,22 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                     D = []
                     for i, k in enumerate(groups.keys()):
                         if len(groups[k]) > 1:
+                            print("len of groups k is bigger than 1")
                             f = np.in1d(gn, [ids + "_" + x for x in groups[k]])
                             if f.sum() > 0:
+                                print("f sum is bigger than 0")
                                 z = gnnm[f].max(0).A.flatten()
                             else:
+                                print("f sum is 0")
                                 z = np.array([])
                         else:
+                            print("len of groups k is smaller than 1")
                             f = gn == ids + "_" + groups[k][0]
                             if np.any(f):
+                                print("np any of f is true")
                                 z = gnnm[f].A.flatten()
                             else:
+                                print("np any of f is not true")
                                 z = np.array([])
                         y = z.nonzero()[0]
                         d = z[y]
@@ -1205,21 +1211,30 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
                         X.extend(x)
                         Y.extend(y)
                         D.extend(d)
+                        print("printing X",X)
+                        print("printing Y",Y)
+                        print("printing D",D)
                     if n == "A":
+                        print("n is equal to A")
                         xa, ya = gnnm[gn1.size :].nonzero()
                         da = gnnm[gn1.size :].data
                         xa += xdim
                     else:
+                        print("n is not equal to A")
                         xa, ya = gnnm[: gn1.size].nonzero()
                         da = gnnm[: gn1.size].data
                         X = list(np.array(X) + gn1.size)
                     X.extend(xa)
                     Y.extend(ya)
                     D.extend(da)
+                    print("printing X again",X)
+                    print("printing Y again",Y)
+                    print("printing D again",D)
                     gnnm = sp.sparse.coo_matrix(
                         (D, (X, Y)),
                         shape=(xdim + gnnm.shape[0] - g.size, gnnm.shape[1]),
                     ).T.tocsr()
+                    print("print gnnm here", gnnm)
                 g = np.array([ids + "_" + x for x in list(groups.keys())])
                 if n == "A":
                     gn1 = g
