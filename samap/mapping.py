@@ -201,7 +201,7 @@ class SAMAP(object):
                 #print(gn1)
                 #print(gn2)
                 print("the dimensions of gnnm are", gnnm.shape)
-                print(gnnm)
+                print("If I print it, it looks like this\n", gnnm)
             else:
                 gnnm, gn1, gn2 = _calculate_eggnog_graph(E[0], E[1], id1, id2, taxa=taxa)
 
@@ -211,7 +211,7 @@ class SAMAP(object):
                 gnnm, gn1, gn2, gn = _coarsen_blast_graph(
                     gnnm, gn1, gn2, gn, id1, id2, names1, names2
                 )
-            #print(gnnm)
+            print("After coarsening it looks like this\n", gnnm)
             gnnm = _filter_gnnm(gnnm, thr=0.25)
             #print(gnnm)
         else:
