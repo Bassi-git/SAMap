@@ -199,8 +199,8 @@ class SAMAP(object):
                 gnnm, gn1, gn2 = _calculate_blast_graph(
                     id1, id2, f_maps=f_maps, reciprocate=reciprocal_blast
                 )
-                #print(gn1)
-                #print(gn2)
+                print("gn1 looks like this\n",gn1)
+                print("gn2 looks like this\n",gn2)
                 print("the dimensions of gnnm are", gnnm.shape)
                 print("If I print it, it looks like this\n", gnnm)
             else:
