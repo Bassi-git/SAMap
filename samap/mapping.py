@@ -1158,7 +1158,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
             L = groupsA.get(name, [])
             L.append(namesA[i][0])
             groupsA[name] = L
-        print("groups a looks like", groupsA)
+        #print("groups a looks like", groupsA)
     else:
         groupsA = None
 
@@ -1169,7 +1169,7 @@ def _coarsen_blast_graph(gnnm, gn1, gn2, gn, id1, id2, namesA, namesB):
             L = groupsB.get(name, [])
             L.append(namesB[i][0])
             groupsB[name] = L
-        print("groups b looks like", groupsB)
+        #print("groups b looks like", groupsB)
     else:
         groupsB = None
 
