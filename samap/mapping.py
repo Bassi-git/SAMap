@@ -16,6 +16,7 @@ from numba.core.errors import NumbaPerformanceWarning, NumbaWarning
 warnings.filterwarnings("ignore", category=NumbaPerformanceWarning)
 warnings.filterwarnings("ignore", category=NumbaWarning)
 
+import random
 
 class SAMAP(object):
     def __init__(
